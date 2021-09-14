@@ -21,7 +21,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Lint check
-        uses: musichin/ktlint-check@main
+        uses: musichin/ktlint-check@v1
 
       - name: Build with Gradle
         run: ./gradlew build
