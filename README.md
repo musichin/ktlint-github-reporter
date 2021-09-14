@@ -1,4 +1,4 @@
-# ktlint GitHub Reporter
+# ktlint GitHub reporter
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.5.30-blue.svg)](http://kotlinlang.org)
 [![CI](https://github.com/musichin/ktlint-github-reporter/actions/workflows/ci.yml/badge.svg)](https://github.com/musichin/ktlint-github-reporter/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/musichin/ktlint-github-reporter/branch/main/graph/badge.svg?token=I2LXI4OUBT)](https://codecov.io/gh/musichin/ktlint-github-reporter)
@@ -14,12 +14,11 @@ ktlint --reporter=github,artifact=ktlint-github-reporter.jar
 ```
 To report as warnings:
 ```
-ktlint --reporter="github?warn,artifact=ktlint-github-reporter.jar"
+ktlint --reporter=github?warn,artifact=ktlint-github-reporter.jar
 ```
 
 ## Download
-Either download the JAR directly from [Releases](https://github.com/musichin/ktlint-github-reporter/releases) section.
-Or using maven:
+Either download the JAR directly from [Releases](https://github.com/musichin/ktlint-github-reporter/releases) section or use maven:
 ```groovy
 repositories {
     mavenCentral()
@@ -29,6 +28,9 @@ dependencies {
     implementation 'de.musichin.ktlint.reporter:ktlint-reporter-github:x.y.z'
 }
 ```
+
+## Example
+![](example.jpg)
 
 ## License
 
