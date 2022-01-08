@@ -2,7 +2,7 @@ import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.31"
+    kotlin("jvm") version "1.6.10"
     jacoco
     id("com.vanniktech.maven.publish") version "0.18.0"
 }
@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-core:0.43.0")
+    implementation("com.pinterest.ktlint:ktlint-core:0.43.2")
     testImplementation(kotlin("test"))
 }
 
