@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.6.10"
     jacoco
-    id("com.vanniktech.maven.publish") version "0.19.0"
+    id("com.vanniktech.maven.publish") version "0.20.0"
 }
 
 repositories {
