@@ -1,8 +1,6 @@
 package de.musichin.ktlint.reporter.github
 
-import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
-import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
@@ -11,23 +9,43 @@ import kotlin.test.assertEquals
 class GitHubReporterProviderTest {
 
     @Test
-    fun testGetError() {
+    fun testGetWithImplicit() {
         val stream = ByteArrayOutputStream()
         val out = PrintStream(stream)
         val reporter = GitHubReporterProvider().get(out, emptyMap())
 
         assertNotNull(reporter)
-        assertFalse(reporter.warn)
+        assertEquals(Level.ERROR, reporter.level)
     }
 
     @Test
-    fun testGetWarning() {
+    fun testGetWithLevelError() {
         val stream = ByteArrayOutputStream()
         val out = PrintStream(stream)
-        val reporter = GitHubReporterProvider().get(out, mapOf("warn" to "true"))
+        val reporter = GitHubReporterProvider().get(out, mapOf("level" to "Error"))
 
         assertNotNull(reporter)
-        assertTrue(reporter.warn)
+        assertEquals(Level.ERROR, reporter.level)
+    }
+
+    @Test
+    fun testGetWithLevelWarning() {
+        val stream = ByteArrayOutputStream()
+        val out = PrintStream(stream)
+        val reporter = GitHubReporterProvider().get(out, mapOf("level" to "Warning"))
+
+        assertNotNull(reporter)
+        assertEquals(Level.WARNING, reporter.level)
+    }
+
+    @Test
+    fun testGetWithLevelNotice() {
+        val stream = ByteArrayOutputStream()
+        val out = PrintStream(stream)
+        val reporter = GitHubReporterProvider().get(out, mapOf("level" to "Notice"))
+
+        assertNotNull(reporter)
+        assertEquals(Level.NOTICE, reporter.level)
     }
 
     @Test

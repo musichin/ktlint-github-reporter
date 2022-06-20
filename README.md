@@ -12,9 +12,10 @@ Download the jar and run:
 ```
 ktlint --reporter=github,artifact=ktlint-github-reporter.jar
 ```
-To report as warnings:
+
+It's possible to specify a level `error`, `warning` or `notice`, e.g.:
 ```
-ktlint --reporter=github?warn,artifact=ktlint-github-reporter.jar
+ktlint --reporter=github?level=warning,artifact=ktlint-github-reporter.jar
 ```
 
 ## Download

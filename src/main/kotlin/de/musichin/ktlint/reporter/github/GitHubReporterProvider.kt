@@ -7,7 +7,7 @@ class GitHubReporterProvider : ReporterProvider<GitHubReporter> {
     override val id: String = "github"
 
     override fun get(out: PrintStream, opt: Map<String, String>): GitHubReporter {
-        val warning = opt["warn"].toBoolean()
-        return GitHubReporter(out, warning)
+        val level = opt["level"] ?: return GitHubReporter(out)
+        return GitHubReporter(out, Level.valueOf(level.uppercase()))
     }
 }

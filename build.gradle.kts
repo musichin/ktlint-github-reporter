@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-core:0.46.0")
+    implementation("com.pinterest.ktlint:ktlint-core:0.46.1")
     testImplementation(kotlin("test"))
 }
 
@@ -21,14 +21,6 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
-}
-
-// FIXME
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-        @Suppress("SuspiciousCollectionReassignment")
-        freeCompilerArgs += listOf("-Xuse-k2")
-    }
 }
 
 jacoco {

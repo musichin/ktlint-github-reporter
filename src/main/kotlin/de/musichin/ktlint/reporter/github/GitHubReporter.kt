@@ -6,9 +6,9 @@ import java.io.PrintStream
 
 class GitHubReporter(
     private val out: PrintStream,
-    val warn: Boolean = false,
+    val level: Level = Level.ERROR,
 ) : Reporter {
-    private val command = if (warn) "warning" else "error"
+    private val command = level.name.lowercase()
 
     override fun onLintError(file: String, err: LintError, corrected: Boolean) {
         if (corrected) return

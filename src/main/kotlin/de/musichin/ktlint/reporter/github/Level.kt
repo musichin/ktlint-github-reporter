@@ -1,4 +1,7 @@
 package de.musichin.ktlint.reporter.github
 
-class Level {
+enum class Level {
+    NOTICE,
+    WARNING,
+    ERROR,
 }
