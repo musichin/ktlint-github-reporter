@@ -49,6 +49,16 @@ class GitHubReporterProviderTest {
     }
 
     @Test
+    fun testGetWithLevelNone() {
+        val stream = ByteArrayOutputStream()
+        val out = PrintStream(stream)
+        val reporter = GitHubReporterProvider().get(out, mapOf("level" to "None"))
+
+        assertNotNull(reporter)
+        assertEquals(Level.NONE, reporter.level)
+    }
+
+    @Test
     fun testId() {
         val id = GitHubReporterProvider().id
 
