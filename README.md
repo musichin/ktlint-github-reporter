@@ -13,7 +13,7 @@ Download the jar and run:
 ktlint --reporter=github,artifact=ktlint-github-reporter.jar
 ```
 
-It's possible to specify a level `error`, `warning` or `notice`, e.g.:
+It's possible to specify a level `error`, `warning`, `notice` or `none`, e.g.:
 ```
 ktlint --reporter=github?level=warning,artifact=ktlint-github-reporter.jar
 ```
