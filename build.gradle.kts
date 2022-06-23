@@ -1,10 +1,9 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "1.7.0"
     jacoco
-    id("com.vanniktech.maven.publish") version "0.19.0"
+    id("com.vanniktech.maven.publish") version "0.20.0"
 }
 
 repositories {
@@ -12,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-core:0.45.1")
+    implementation("com.pinterest.ktlint:ktlint-core:0.46.1")
     testImplementation(kotlin("test"))
 }
 
@@ -24,12 +23,8 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-mavenPublish {
-    sonatypeHost = SonatypeHost.S01
-}
-
 jacoco {
-    toolVersion = "0.8.7"
+    toolVersion = "0.8.8"
 }
 
 tasks.jacocoTestReport {
