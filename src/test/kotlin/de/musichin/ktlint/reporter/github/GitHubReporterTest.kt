@@ -54,6 +54,21 @@ class GitHubReporterTest {
     }
 
     @Test
+    fun testReporterErrorWithLevelNone() {
+        val stream = ByteArrayOutputStream()
+        val out = PrintStream(stream)
+        val reporter = GitHubReporter(out, Level.NONE)
+
+        val lintError = LintError(1, 2, "testRuleId", "testDetail")
+        reporter.before("testFile")
+        reporter.onLintError("testFile", lintError, false)
+        reporter.after("testFile")
+
+        val result = stream.toString().trim()
+        assertEquals("", result)
+    }
+
+    @Test
     fun testIgnoringCorrected() {
         val stream = ByteArrayOutputStream()
         val out = PrintStream(stream)
