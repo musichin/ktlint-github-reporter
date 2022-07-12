@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.7.0"
     jacoco
-    id("com.vanniktech.maven.publish") version "0.20.0"
+    id("com.vanniktech.maven.publish") version "0.21.0"
 }
 
 repositories {
