@@ -5,6 +5,7 @@ import com.pinterest.ktlint.cli.reporter.core.api.KtlintCliError.Status.FORMAT_I
 import com.pinterest.ktlint.cli.reporter.core.api.ReporterV2
 import java.io.PrintStream
 
+
 class GitHubReporter(
     private val out: PrintStream,
     val level: Level = Level.ERROR,
@@ -23,5 +24,7 @@ class GitHubReporter(
         out.println("::$command file=$file,line=$line,col=$column::$message")
     }
 
-    private fun escape(data: String): String = data.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+    private fun escape(data: String): String =
+        data.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
 }
+
