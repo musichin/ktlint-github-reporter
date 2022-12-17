@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.7.22"
     jacoco
-    id("com.vanniktech.maven.publish") version "0.21.0"
+    id("com.vanniktech.maven.publish") version "0.22.0"
 }
 
 repositories {
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-core:0.47.0")
+    implementation("com.pinterest.ktlint:ktlint-core:0.48.0")
     testImplementation(kotlin("test"))
 }
 
