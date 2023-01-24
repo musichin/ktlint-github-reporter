@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-core:0.48.0")
+    implementation("com.pinterest.ktlint:ktlint-core:0.48.2")
     testImplementation(kotlin("test"))
 }
 
