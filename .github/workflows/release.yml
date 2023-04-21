@@ -33,7 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/libs/ktlint-github-reporter-${{ github.event.release.tag_name }}.jar
+          asset_path: ./build/libs/ktlint-github-reporter.jar
           asset_name: ktlint-github-reporter.jar
           asset_content_type: application/java-archive
 
@@ -43,6 +43,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/libs/ktlint-github-reporter-${{ github.event.release.tag_name }}.jar.asc
+          asset_path: ./build/libs/ktlint-github-reporter.jar.asc
           asset_name: ktlint-github-reporter.jar.asc
           asset_content_type: text/plain
