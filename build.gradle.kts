@@ -1,9 +1,7 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-    kotlin("jvm") version "1.7.22"
+    kotlin("jvm") version "1.8.20"
     jacoco
-    id("com.vanniktech.maven.publish") version "0.22.0"
+    id("com.vanniktech.maven.publish") version "0.25.2"
 }
 
 repositories {
@@ -11,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-core:0.48.0")
+    implementation("com.pinterest.ktlint:ktlint-cli-reporter:0.49.0")
     testImplementation(kotlin("test"))
 }
 
@@ -19,12 +17,8 @@ tasks.test {
     useJUnit()
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
 jacoco {
-    toolVersion = "0.8.8"
+    toolVersion = "0.8.9"
 }
 
 tasks.jacocoTestReport {

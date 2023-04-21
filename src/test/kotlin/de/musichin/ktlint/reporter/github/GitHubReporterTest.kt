@@ -1,6 +1,8 @@
 package de.musichin.ktlint.reporter.github
 
-import com.pinterest.ktlint.core.LintError
+import com.pinterest.ktlint.cli.reporter.core.api.KtlintCliError
+import com.pinterest.ktlint.cli.reporter.core.api.KtlintCliError.Status.FORMAT_IS_AUTOCORRECTED
+import com.pinterest.ktlint.cli.reporter.core.api.KtlintCliError.Status.LINT_CAN_NOT_BE_AUTOCORRECTED
 import org.junit.Test
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
@@ -14,9 +16,9 @@ class GitHubReporterTest {
         val out = PrintStream(stream)
         val reporter = GitHubReporter(out, Level.ERROR)
 
-        val lintError = LintError(1, 2, "testRuleId", "testDetail")
+        val lintError = KtlintCliError(1, 2, "testRuleId", "testDetail", LINT_CAN_NOT_BE_AUTOCORRECTED)
         reporter.before("testFile")
-        reporter.onLintError("testFile", lintError, false)
+        reporter.onLintError("testFile", lintError)
         reporter.after("testFile")
 
         val result = stream.toString().trim()
@@ -29,9 +31,9 @@ class GitHubReporterTest {
         val out = PrintStream(stream)
         val reporter = GitHubReporter(out, Level.WARNING)
 
-        val lintError = LintError(1, 2, "testRuleId", "testDetail")
+        val lintError = KtlintCliError(1, 2, "testRuleId", "testDetail", LINT_CAN_NOT_BE_AUTOCORRECTED)
         reporter.before("testFile")
-        reporter.onLintError("testFile", lintError, false)
+        reporter.onLintError("testFile", lintError)
         reporter.after("testFile")
 
         val result = stream.toString().trim()
@@ -44,9 +46,9 @@ class GitHubReporterTest {
         val out = PrintStream(stream)
         val reporter = GitHubReporter(out, Level.NOTICE)
 
-        val lintError = LintError(1, 2, "testRuleId", "testDetail")
+        val lintError = KtlintCliError(1, 2, "testRuleId", "testDetail", LINT_CAN_NOT_BE_AUTOCORRECTED)
         reporter.before("testFile")
-        reporter.onLintError("testFile", lintError, false)
+        reporter.onLintError("testFile", lintError)
         reporter.after("testFile")
 
         val result = stream.toString().trim()
@@ -59,9 +61,9 @@ class GitHubReporterTest {
         val out = PrintStream(stream)
         val reporter = GitHubReporter(out, Level.NONE)
 
-        val lintError = LintError(1, 2, "testRuleId", "testDetail")
+        val lintError = KtlintCliError(1, 2, "testRuleId", "testDetail", LINT_CAN_NOT_BE_AUTOCORRECTED)
         reporter.before("testFile")
-        reporter.onLintError("testFile", lintError, false)
+        reporter.onLintError("testFile", lintError)
         reporter.after("testFile")
 
         val result = stream.toString().trim()
@@ -74,9 +76,9 @@ class GitHubReporterTest {
         val out = PrintStream(stream)
         val reporter = GitHubReporter(out, Level.ERROR)
 
-        val lintError = LintError(1, 2, "testRuleId", "testDetail")
+        val lintError = KtlintCliError(1, 2, "testRuleId", "testDetail", FORMAT_IS_AUTOCORRECTED)
         reporter.before("testFile")
-        reporter.onLintError("testFile", lintError, true)
+        reporter.onLintError("testFile", lintError)
         reporter.after("testFile")
 
         val result = stream.toString().trim()

@@ -10,12 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -23,7 +23,7 @@ jobs:
       - name: Lint check
         uses: musichin/ktlint-check@v2
         with:
-          ktlint-version: 0.47.0
+          ktlint-version: 0.48.2
 
       - name: Build with Gradle
         run: ./gradlew build
