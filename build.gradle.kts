@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.0.0")
+    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.1.0")
     testImplementation(kotlin("test"))
 }
 
