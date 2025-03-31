@@ -7,7 +7,6 @@ import java.io.PrintStream
 import kotlin.test.assertEquals
 
 class GitHubReporterProviderTest {
-
     @Test
     fun testGetWithImplicit() {
         val stream = ByteArrayOutputStream()

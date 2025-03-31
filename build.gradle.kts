@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
+    kotlin("jvm") version "2.1.20"
     jacoco
-    id("com.vanniktech.maven.publish") version "0.25.3"
+    id("com.vanniktech.maven.publish") version "0.31.0"
 }
 
 repositories {
@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.0.0")
+    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.5.0")
     testImplementation(kotlin("test"))
 }
 
@@ -18,7 +18,7 @@ tasks.test {
 }
 
 jacoco {
-    toolVersion = "0.8.10"
+    toolVersion = "0.8.12"
 }
 
 tasks.jacocoTestReport {

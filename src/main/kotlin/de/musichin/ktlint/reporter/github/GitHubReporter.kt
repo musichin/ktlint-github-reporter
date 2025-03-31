@@ -9,8 +9,10 @@ class GitHubReporter(
     private val out: PrintStream,
     val level: Level = Level.ERROR,
 ) : ReporterV2 {
-
-    override fun onLintError(file: String, ktlintCliError: KtlintCliError) {
+    override fun onLintError(
+        file: String,
+        ktlintCliError: KtlintCliError,
+    ) {
         if (level == Level.NONE) return
         if (ktlintCliError.status == FORMAT_IS_AUTOCORRECTED) return
 
@@ -21,10 +23,5 @@ class GitHubReporter(
         out.println("::$command file=$file,line=$line,col=$column::$message")
     }
 
-    private fun escape(data: String): String {
-        return data
-            .replace("%", "%25")
-            .replace("\r", "%0D")
-            .replace("\n", "%0A")
-    }
+    private fun escape(data: String): String = data.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
 }
