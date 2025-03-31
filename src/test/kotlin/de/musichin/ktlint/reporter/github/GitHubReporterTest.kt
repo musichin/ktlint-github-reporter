@@ -9,7 +9,6 @@ import java.io.PrintStream
 import kotlin.test.assertEquals
 
 class GitHubReporterTest {
-
     @Test
     fun testReporterErrorWithLevelError() {
         val stream = ByteArrayOutputStream()
