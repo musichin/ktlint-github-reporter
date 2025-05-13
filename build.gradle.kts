@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.20"
+    kotlin("jvm") version "2.1.21"
     jacoco
     id("com.vanniktech.maven.publish") version "0.31.0"
 }
