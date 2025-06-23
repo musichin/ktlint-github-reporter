@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm") version "2.1.20"
     jacoco
-    id("com.vanniktech.maven.publish") version "0.31.0"
+    id("com.vanniktech.maven.publish") version "0.33.0"
 }
 
 repositories {
