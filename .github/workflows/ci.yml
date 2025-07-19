@@ -21,9 +21,9 @@ jobs:
           distribution: 'adopt'
 
       - name: Lint check
-        uses: musichin/ktlint-check@v2
+        uses: musichin/ktlint-check@v3
         with:
-          ktlint-version: 1.5.0
+          ktlint-version: 1.7.0
 
       - name: Build with Gradle
         run: ./gradlew build
