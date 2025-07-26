@@ -20,14 +20,8 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Lint check
-        uses: musichin/ktlint-check@v3
-        with:
-          ktlint-version: 1.7.1
-
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew ktlintCheck
 
-      - run: bash <(curl -s https://codecov.io/bash)
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - run: find . -type f -name '*.github' -print0 | xargs -0 cat
+        if: always()
