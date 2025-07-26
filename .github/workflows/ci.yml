@@ -23,7 +23,7 @@ jobs:
       - name: Lint check
         uses: musichin/ktlint-check@v3
         with:
-          ktlint-version: 1.7.0
+          ktlint-version: 1.7.1
 
       - name: Build with Gradle
         run: ./gradlew build
