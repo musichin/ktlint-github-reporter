@@ -4,6 +4,7 @@ plugins {
     kotlin("jvm") version "2.2.0"
     jacoco
     id("com.vanniktech.maven.publish") version "0.34.0"
+    id("org.jlleitschuh.gradle.ktlint") version "13.0.0"
 }
 
 kotlin {
@@ -44,4 +45,15 @@ tasks.test {
 }
 tasks.jacocoTestReport {
     dependsOn(tasks.test) // tests are required to run before generating the report
+}
+
+configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+    version.set("1.7.1")
+    reporters {
+        customReporters {
+            register("github") {
+                dependency = "de.musichin.ktlint.reporter:ktlint-reporter-github:3.3.1"
+            }
+        }
+    }
 }

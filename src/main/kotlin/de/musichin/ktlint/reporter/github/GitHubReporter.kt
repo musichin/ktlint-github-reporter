@@ -19,7 +19,7 @@ class GitHubReporter(
         val line = ktlintCliError.line
         val column = ktlintCliError.col
         val message = escape(ktlintCliError.detail)
-        val command = level.name.lowercase()
+        val command = level.name.lowercase();
         out.println("::$command file=$file,line=$line,col=$column::$message")
     }
 
