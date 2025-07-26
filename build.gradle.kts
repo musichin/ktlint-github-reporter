@@ -1,7 +1,16 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 plugins {
     kotlin("jvm") version "2.2.0"
     jacoco
     id("com.vanniktech.maven.publish") version "0.34.0"
+}
+
+kotlin {
+    compilerOptions {
+        apiVersion.set(KotlinVersion.KOTLIN_2_0)
+        languageVersion.set(KotlinVersion.KOTLIN_2_0)
+    }
 }
 
 repositories {
@@ -9,7 +18,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.7.0")
+    implementation(kotlin("stdlib"))
+    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.7.1")
     testImplementation(kotlin("test"))
 }
 
