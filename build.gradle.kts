@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.7.1")
+    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.8.0")
     testImplementation(kotlin("test"))
 }
 
