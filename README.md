@@ -1,5 +1,5 @@
 # 🛠 ktlint GitHub reporter
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.2.0-blue.svg)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.3.0-blue.svg)](http://kotlinlang.org)
 [![CI](https://github.com/musichin/ktlint-github-reporter/actions/workflows/ci.yml/badge.svg)](https://github.com/musichin/ktlint-github-reporter/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/musichin/ktlint-github-reporter/branch/main/graph/badge.svg?token=I2LXI4OUBT)](https://codecov.io/gh/musichin/ktlint-github-reporter)
 [![Release](https://img.shields.io/github/v/release/musichin/ktlint-github-reporter)](https://github.com/musichin/ktlint-github-reporter/releases)
@@ -58,9 +58,9 @@ steps:
 ```
 Alternatively, use the [ktlint-check](https://github.com/musichin/ktlint-check) GitHub Action:
 ```yaml
-- uses: musichin/ktlint-check@v3
+- uses: musichin/ktlint-check@v4
   with:
-    ktlint-version: '1.7.0'
+    ktlint-version: '1.8.0'
     level: warning
 ```
 > This action internally uses this reporter.

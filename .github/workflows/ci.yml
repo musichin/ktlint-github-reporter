@@ -10,18 +10,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: set up JDK 11
-        uses: actions/setup-java@v4
+      - name: set up JDK
+        uses: actions/setup-java@v5
         with:
-          java-version: '11'
+          java-version: '21'
           distribution: 'adopt'
 
       - name: Lint check
-        uses: musichin/ktlint-check@v3
+        uses: musichin/ktlint-check@v4
         with:
           ktlint-version: 1.7.1
 

@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
-    kotlin("jvm") version "2.2.0"
+    kotlin("jvm") version "2.3.0"
     jacoco
-    id("com.vanniktech.maven.publish") version "0.34.0"
+    id("com.vanniktech.maven.publish") version "0.35.0"
 }
 
 kotlin {
@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.7.1")
+    implementation("com.pinterest.ktlint:ktlint-cli-reporter-core:1.8.0")
     testImplementation(kotlin("test"))
 }
 
@@ -28,7 +28,7 @@ tasks.test {
 }
 
 jacoco {
-    toolVersion = "0.8.13"
+    toolVersion = "0.8.14"
 }
 
 tasks.jacocoTestReport {
