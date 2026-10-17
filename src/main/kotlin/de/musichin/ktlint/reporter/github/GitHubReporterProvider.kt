@@ -11,6 +11,14 @@ class GitHubReporterProvider : ReporterProviderV2<GitHubReporter> {
         opt: Map<String, String>,
     ): GitHubReporter {
         val level = opt["level"] ?: return GitHubReporter(out)
-        return GitHubReporter(out, Level.valueOf(level.uppercase()))
+        return GitHubReporter(out, parseLevel(level))
+    }
+
+    private fun parseLevel(value: String): Level {
+        val level = Level.entries.firstOrNull { it.name.equals(value, ignoreCase = true) }
+        if (level != null) return level
+
+        val validValues = Level.entries.joinToString { it.name.lowercase() }
+        throw IllegalArgumentException("Invalid level '$value' for the $id reporter. Valid values: $validValues.")
     }
 }
