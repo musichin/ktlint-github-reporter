@@ -7,14 +7,23 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v6
-
-      - name: set up JDK
-        uses: actions/setup-java@v5
+      - uses: actions/checkout@v7
         with:
-          java-version: '21'
-          distribution: 'adopt'
+          persist-credentials: false
+
+      - name: Set up JDK
+        uses: actions/setup-java@v6
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-disabled: true
 
       - name: Publish
         run: | 
@@ -26,22 +35,7 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
           ORG_GRADLE_PROJECT_VERSION_NAME: ${{ github.event.release.tag_name }}
 
-      - name: Upload ktlint-github-reporter.jar
-        uses: actions/upload-release-asset@v1
+      - name: Upload release assets
+        run: gh release upload "$GITHUB_REF_NAME" build/libs/ktlint-github-reporter.jar build/libs/ktlint-github-reporter.jar.asc
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/libs/ktlint-github-reporter.jar
-          asset_name: ktlint-github-reporter.jar
-          asset_content_type: application/java-archive
-
-      - name: Upload ktlint-github-reporter.jar.asc
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/libs/ktlint-github-reporter.jar.asc
-          asset_name: ktlint-github-reporter.jar.asc
-          asset_content_type: text/plain
+          GH_TOKEN: ${{ github.token }}

@@ -1,5 +1,5 @@
 # 🛠 ktlint GitHub reporter
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.3.0-blue.svg)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.4.21-blue.svg)](http://kotlinlang.org)
 [![CI](https://github.com/musichin/ktlint-github-reporter/actions/workflows/ci.yml/badge.svg)](https://github.com/musichin/ktlint-github-reporter/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/musichin/ktlint-github-reporter/branch/main/graph/badge.svg?token=I2LXI4OUBT)](https://codecov.io/gh/musichin/ktlint-github-reporter)
 [![Release](https://img.shields.io/github/v/release/musichin/ktlint-github-reporter)](https://github.com/musichin/ktlint-github-reporter/releases)
@@ -52,7 +52,7 @@ dependencies {
 Use in a GitHub Actions workflow:
 ```yaml
 steps:
-  - uses: actions/checkout@v4
+  - uses: actions/checkout@v7
   - name: Run ktlint with GitHub reporter
     run: ktlint --reporter=github,artifact=ktlint-github-reporter.jar
 ```
@@ -65,10 +65,21 @@ Alternatively, use the [ktlint-check](https://github.com/musichin/ktlint-check) 
 ```
 > This action internally uses this reporter.
 
+## 🔗 Compatibility
+| ktlint            | Reporter                                                                    |
+|-------------------|-----------------------------------------------------------------------------|
+| 2.x               | latest 4.x *(upcoming)*                                                     |
+| 1.x               | latest 3.x                                                                  |
+| ≥ 0.49.0, < 1.0.0 | latest 3.0.x                                                                |
+| < 0.49.0          | see [releases](https://github.com/musichin/ktlint-github-reporter/releases) |
+
 ## 🔧 Configuration Options
 | Option  | Description                                                  | Default |
 |---------|--------------------------------------------------------------|---------|
 | `level` | Sets severity level: `error`, `warning`, `notice`, or `none` | `error` |
+
+## ⚠️ Limitations
+GitHub shows at most 10 error and 10 warning annotations per step (50 per job), so some issues may not be visible. For complete results, use ktlint's `sarif` reporter with GitHub code scanning.
 
 ## Example
 ![](example.jpg)
