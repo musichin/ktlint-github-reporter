@@ -27,9 +27,7 @@ jobs:
           cache-provider: basic
 
       - name: Lint check
-        uses: musichin/ktlint-check@v4
-        with:
-          ktlint-version: 1.8.0
+        uses: musichin/ktlint-check@main
 
       - name: Build with Gradle
         run: ./gradlew build
